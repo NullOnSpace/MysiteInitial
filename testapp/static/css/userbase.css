@@ -1,0 +1,488 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#bkgd{
+  position: absolute;
+  top: 0px;
+  background-attachment: scroll;
+  width: 1920px;
+  height: 1080px;
+  background-image: url("/static/images/sky_water.jpg");
+  z-index: -1;
+}
+
+.clearfix:after{
+	content: "";
+	display: block;
+  clear: both;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.hide{
+  display: none;
+}
+
+.titlebar{
+  height: 48px;
+  line-height: 48px;
+  font-family: "Mono";
+  background-color: RGBA(255,255,255,0.3);
+  box-shadow: 3px 3px 8px #555;
+}
+
+.barlimiter{
+  width: 960px;
+  margin: 0 auto;
+}
+
+.baritem{
+  display: inline-block;
+  padding: 0 14px;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  background-color: RGBA(255,255,255,0.15);
+}
+
+.baritem:hover{
+  background-color: RGBA(255,255,255,0.45);
+}
+
+.currentitem{
+  box-shadow: 0px -2px 0px red inset;
+}
+
+#mainbody{
+  margin: 0 auto;
+  width: 960px;
+  min-height: 500px;
+  overflow: auto;
+}
+
+.pad{
+  display: inline-block;
+  margin: 30px 20px;
+  background-color: RGBA(255,255,255,0.6);
+  border: 2px solid #DDD;
+}
+
+.paginator{
+  padding: 3px 5px;
+  margin: 5px 8px 10px;
+}
+
+.page{
+  margin: 0px 3px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.mask{
+  background-color: RGBA(255,255,255,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pop-box{
+  padding: 8px 5px;
+  background-color: #D19826;
+  font-size: 20px;
+  width: 200px;
+  min-height: 30px;
+  position: absolute;
+  box-shadow: 2px 2px 5px #333;
+  text-align: center;
+  line-height: 20px;
+}
+
+#room{
+  position: relative;
+  min-height: 400px;
+}
+
+#fyi{
+  position: relative;
+  min-height: 600px;
+}
+
+#roomlist{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  min-width: 240px;
+	max-height: 320px;
+	overflow-y: auto;
+}
+
+#rolling{
+	position: absolute;
+	left: 0px;
+	top: 340px;
+	width: 240px;
+	height: 135px;
+	overflow: hidden;
+}
+
+#rolling img{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#dot-box{
+	position: absolute;
+	display: inline-block;
+	margin: 5px 20px;
+	width: 200px;
+	bottom: 0px;
+}
+
+.side-bt{
+	margin: 0 4px;
+	position: absolute;
+	display: inline-block;
+	width: 32px;
+	height: 50px;
+	font-size: 40px;
+	text-align: center;
+	line-height: 50px;
+	background-color: rgba(255,255,255,0.4);
+	color: #FFF;
+	text-shadow: 1px 1px 2px #333;
+	font-family: Monospace;
+	font-weight: bold;
+	border-radius: 4px;
+	top: 38px;
+	cursor: pointer;
+}
+
+.dot{
+	width: 10px;
+	height: 10px;
+	box-shadow: 2px 2px 3px #333;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0px 3px;
+	border-radius: 5px;
+}
+
+#roomdm{
+  position: absolute;
+  right: 320px;
+  top: 0px;
+  width: 300px;
+}
+
+#restroom{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+}
+
+#follow{
+  position: relative;
+}
+
+#spefo{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+}
+
+#fo-user{
+  width: 400px;
+}
+
+#fo-user table{
+  display: block;
+  height: 360px;
+  width: 380px;
+  overflow-y: scroll;
+}
+
+#searchfo{
+  width: 400px;
+}
+
+#user{
+  width: 120px;
+  padding: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#user:hover{
+  overflow: visible;
+  text-overflow: inherit;
+}
+
+#user-ext{
+  line-height: 32px;
+  font-size: 16px;
+  width: inherit;
+  background-color: #EEE;
+  position: absolute;
+  z-index: 999;
+}
+
+#user-ext li{
+  list-style: none;
+}
+
+#user-ext li:hover{
+  background-color: #BBB;
+}
+
+#user-opt{
+  position: absolute;
+  width: 200px;
+  height: 160px;
+  background-color: #EA0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.opt-button{
+  display: inline-block;
+  width: 80px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3px 6px;
+  font-family: Monospace;
+  color: #EEE;
+}
+
+.user-icon{
+  margin: 5px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid #111;
+  overflow: hidden;
+}
+
+.user-info{
+  margin: 5px auto;
+}
+
+.opt-button:hover{
+  box-shadow: 2px 2px 5px #333;
+}
+
+.room{
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.room:hover{
+  background-color: #EEE;
+}
+
+.roomno{
+  min-width: 70px;
+  text-align: left;
+}
+
+.roomnm{
+  min-width: 140px;
+  text-align: left;
+}
+
+.button{
+  padding: 0px 5px;
+  background-color: #EEE;
+  font-weight: bold;
+  color: #222;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.curoom{
+  background-color: RGBA(255,255,255,0.5);
+  box-shadow: -2px 0px #A00 inset;
+}
+
+#dm-box{
+  display: inline-block;
+  width: 300px;
+  height: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  clear: both;
+}
+
+#spe-dm-box{
+  display: inline-block;
+  width: 300px;
+  height: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  clear: both;
+}
+
+.dm{
+  font-size: 14px;
+  line-height: 14px;
+  border: 1px dashed black;
+  padding: 2px 0px;
+}
+
+.dm-bar{
+  width: 90px;
+  background-color: yellow;
+  text-align: center;
+  border: 1px solid #665;
+  margin: 0px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nickname{
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+.level{
+  padding: 0 2px;
+  background-color: #99E;
+}
+
+.noble-lv{
+  padding: 0 2px;
+  background-color: yellow;
+}
+
+.dmtxt{
+  padding: 0 2px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+td.idc{
+  width: 20px;
+  border-radius: 10px;
+}
+
+td.lived{
+  background-color: #999;
+}
+
+td.living{
+  background-color: #E60;
+}
+
+.res-uid{
+  width: 80px;
+}
+
+.res-nn{
+  width: 200px;
+}
+
+.res-lv{
+  width: 40px;
+}
+
+#post{
+	margin: 0px auto;
+  padding: 10px 0px;
+	width: 960px;
+  min-height: 600px;
+	background-color: rgba(255,255,255,0.7);
+}
+
+.post{
+	background-color: #FFF;
+  box-shadow: 3px 3px 5px #333;
+	margin: 10px 30px;
+  padding: 5px 5px;
+  border: 1px solid #7B90D2;
+  border-radius: 5px;
+}
+
+.sub-post{
+	margin: 5px 5px 5px 25px;
+	border: 1px solid #E2A;
+}
+
+.res-post>.post-head,.res-post>.post-body,.res-post>.post-tail{
+	background-color: #A5DEF4;
+}
+
+.post-tail{
+	padding: 5px 0px;
+}
+
+.post-comment{
+	margin: 0px 3px;
+	padding: 0px 5px;
+	display: inline-block;
+	border-style: none solid;
+	border-width: 1px;
+	border-color: #111;
+	width: 60px;
+	cursor: pointer;
+}
+
+.post-thumb{
+	margin: 0px 3px;
+	padding: 0px 5px;
+	display: inline-block;
+	border-style: none solid;
+	border-width: 1px;
+	border-color: #111;
+	width: 60px;
+	cursor: pointer;
+}
+
+.post-tail img{
+	height: 12px;
+}
+
+#comment-box{
+  position: relative;
+  margin: 5px 0px;
+  width: 100%;
+}
+
+#comment-box form{
+  margin: 0px 100px 0px 10px;
+}
+
+#comment-box [type='submit']{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  height: 4em;
+  width: 80px;
+  text-align: center;
+  line-height: 50px;
+}
+
+#comment-box textarea{
+  position: relative;
+  height: 4em;
+  width: 100%;
+}

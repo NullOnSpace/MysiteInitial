@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load staticfiles %}
+	{% block icon %}
+	<link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+	{% endblock %}
+	{% block title %}
+	<title>testapp</title>
+	{% endblock %}
+	{% block css %}
+	<link type="text/css" href="{% static "css/base.css" %}" rel="stylesheet">
+	{% endblock %}
+</head>
+<body>
+	{% block bg %}
+    <div id="bkgd">
+      {% block content %}
+      {% endblock %}
+    </div>
+	{% endblock %}
+	{% block script %}
+	{% endblock %}
+</body>
+</html>

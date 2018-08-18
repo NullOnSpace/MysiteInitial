@@ -1,0 +1,91 @@
+{% extends "userbase.html" %}
+
+{% block content %}
+<div id="mainbody">
+	<div id="room" class="clearfix">
+    <span id="roomlist" class="pad">
+      <table name="Roomfollow">
+        <h3>My Following Rooms</h3>
+        <th class="roomno">roomid</th>
+        <th class="roomnm">roomowner</th>
+        {% for room in f_rooms %}
+        <tr eid={{ room.id }}>
+          <td class="roomno">{{ room.roomid }}</td>
+          <td class="roomnm">{{ room.ownernn }}</td>
+          <td class="button right">-</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </span>
+    <span id="restroom" class="pad">
+      <table name="Roomfollow">
+        <h3>My Unfollow Rooms</h3>
+        <th class="roomno">roomid</th>
+        <th class="roomnm">roomowner</th>
+        {% for room in uf_rooms %}
+        <tr class="room" eid={{ room.roomid }}>
+          <td class="roomno">{{ room.roomid }}</td>
+          <td class="roomnm">{{ room.ownernn }}</td>
+          <td class="button right">+</td>
+        </tr>
+        {% endfor %}
+            </table>
+    </span>
+	</div>
+	<div id="follow" class="clearfix">
+    <span id="fo-user" class="pad left">
+      <h3>My Following Users</h3>
+      <form action='javascript:void(0)'>
+        <input type='text' name="search-in-fo" />
+        <input type='submit' value='search' />
+        <button id="search-pre" class='hide'>&lt;</button>
+        <button id="search-next" class='hide'>&gt;</button>
+        <button id="search-reset" class='hide'>X</button>
+        <span class='hide'></span>
+      </form>
+      <table name="Userfollow">
+        <tr>
+          <th class="res-uid">uid</th>
+          <th class="res-nn">nickname</th>
+          <th class="res-lv">level</th>
+        </tr>
+        {% for user in f_users %}
+        <tr eid={{ user.uid }}>
+          <td class="res-uid">{{ user.uid }}</td>
+          <td class="res-nn">{{ user.nickname }}</td>
+          <td class="res-lv">{{ user.level }}</td>
+          <td class="button right">-</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </span>
+    <span id="searchfo" class="pad right">
+      <h3>Search to Follow</h3>
+      <span>
+        <form name="search" action="javascript:void(0)">
+          <input id="search-user" type="text" name="nickname"/>
+          <button id="sub-search" pg='1'>SEARCH</button>
+        </form>
+      </span>
+      <table name="Userfollow">
+        <tr id="user-head">
+          <th class="res-uid">uid</th>
+          <th class="res-nn">nickname</th>
+          <th class="res-lv">level</th>
+        </tr>
+      </table>
+    </span>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% load static %}
+<script src="{% static "javascript/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "javascript/umana.js" %}"></script>
+<script type="text/javascript">
+  ele = document.getElementById("mana")
+  ele.classList.add("currentitem")
+</script>
+{% endblock %}
+

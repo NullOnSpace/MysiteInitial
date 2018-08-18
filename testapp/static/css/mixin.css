@@ -1,0 +1,23 @@
+form.login{
+    width: 560px;
+    margin: 0 auto;
+    padding-top: 400px;
+    opacity: 0.8;
+    line-height: 28px;
+    font-family: 'MonoSpace';
+}
+
+form.login p{
+    min-height: 28px;
+    background-color: #EEE;
+}
+
+form.login label{
+    display: inline-block;
+    min-width: 120px;
+}
+
+form.login>input{
+    margin-right: 50px;
+    float: right;
+}

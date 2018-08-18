@@ -1,0 +1,59 @@
+{% extends "userbase.html" %}
+
+{% block content %}
+{% load static %}
+<div id="post">
+  {% for post in posts %}
+  <div class="post" pid="{{ post.id }}">
+    <div class="post-head">
+      <span class="post-user">
+        {{ post.username }}
+      </span>
+      <span class="post-pubtime">
+        {{ post.pubtime }}
+      </span>
+      {% if post.can_delete %}
+      <span class="post-delete">
+        delete
+      </span>
+      {% endif %}
+    </div>
+    <div class="post-body">
+      <span class="post-text">
+        {{ post.text }}
+      </span>
+    </div>
+    <div class="post-tail clearfix">
+      <span class="post-thumb right">
+        <img src="{% static "images/thumbs-up.png" %}"></img>
+        {{ post.thumb }}
+      </span>
+      <span class="post-comment right">
+        <img src="{% static "images/speech-balloon.png" %}"></img>
+        {{ post.comment }}
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+  <div id='paginator' cpage='{{ page.number }}' tpage='{{ page.paginator.num_pages }}'>
+  </div>
+  <div id='poster'>
+    <form id="post-form" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="post" />
+      <textarea name="content" rows="10" cols="50" maxlength="140"></textarea>
+      <input type="submit" value="Post" class="right"/>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% load static %}
+<script src="{% static "javascript/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "javascript/ucom.js" %}"></script>
+<script>
+ele = document.getElementById("com")
+ele.classList.add("currentitem")
+</script>
+{% endblock %}

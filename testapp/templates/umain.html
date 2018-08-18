@@ -1,0 +1,46 @@
+{% extends "userbase.html" %}
+
+{% block content %}
+<div id="mainbody">
+	<div id="fyi" class="clearfix">
+    <span id="roomlist" class="pad">
+        <h3>My Following Room</h3>
+      <table>
+        {% for room in f_rooms %}
+        <tr class='room'>
+          <td class='roomno'>{{ room.roomid }}</td>
+          <td class='roomnm'>{{ room.ownernn }}</td>
+          <td class='idc lived'></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </span>
+    <span id="roomdm" class="pad">
+      <h3>Danmu</h3>
+      <span id="scroll" class='dm-bar right'>LockBottom</span>
+      <span id="clear-dm" class='dm-bar right'>ClearDanmu</span>
+      <div id='dm-box'>
+        <div class='dm hide'></div>
+      </div>
+    </span>
+    <span id="spefo" class="pad">
+      <h3>My Special Follow</h3>
+      <span id="spe-scroll" class='dm-bar right'>LockBottom</span>
+      <span id="spe-clear-dm" class='dm-bar right'>ClearDanmu</span>
+      <div id='spe-dm-box'>
+        <div class='dm hide'></div>
+      </div>
+    </span>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% load static %}
+<script src="{% static "javascript/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "javascript/umain.js" %}"></script>
+<script>
+ele = document.getElementById("main")
+ele.classList.add("currentitem")
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load staticfiles %}
+	{% block icon %}
+	<link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+	{% endblock %}
+	{% block title %}
+    <title>{{ user.username }}'s page</title>
+	{% endblock %}
+	{% block css %}
+	<link type="text/css" href="{% static "css/userbase.css" %}" rel="stylesheet">
+	{% endblock %}
+</head>
+<body>
+	{% block bg %}
+  <div id="bkgd">
+  </div>
+	{% endblock %}
+  <div class="titlebar">
+    <div class="barlimiter">
+      <a id="main" class="baritem left" href="/testapp/main/">MAIN</a>
+      <a id="mana" class="baritem left" href="/testapp/management/">MANAGEMENT</a>
+      <a id="com" class="baritem left" href="/testapp/community/">COMMUNITY</a>
+      <a id="user" class="baritem right" href="javascript:void(0)">{{ user.username }}
+        <ul id='user-ext' class='hide'>
+          <li>TBD</li>
+          <li id="logout" onclick="location.href='/testapp/logout/'">Logout</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+{% block content %}
+{% endblock %}
+{% block script %}
+{% endblock %}
+  <script>
+    var bkgdImg = document.getElementById('bkgd');
+    bkgdImg.style.width = document.body.offsetWidth+'px';
+    bkgdImg.style.height = Math.max(document.body.offsetHeight,
+        window.innerHeight)+'px';
+    var rszFlag = false;
+    var rszFn = function(){
+      bkgdImg.style.width  = document.body.offsetWidth+'px';
+      bkgdImg.style.height = Math.max(document.body.offsetHeight,
+          window.innerHeight)+'px';
+      rszFlag = false;
+    }
+    document.body.onresize = function(){
+      if (rszFlag){
+        window.clearTimeout(rszTimer);
+      }
+      rszTimer = window.setTimeout(rszFn, 500);
+      rszFlag = true;
+    }
+    var userEle = document.getElementById('user');
+    userEle.onmouseover = function(){
+      userExtEle = document.getElementById('user-ext');
+      userExtEle.classList.remove('hide');
+    }
+    userEle.onmouseout = function(){
+      userExtEle = document.getElementById('user-ext');
+      userExtEle.classList.add('hide');
+    }
+  </script>
+</body>
+</html>

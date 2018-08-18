@@ -1,0 +1,17 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<div id="user-show">
+  {% for user in objs.object_list %}
+  <div class='user-line'>
+    <form action="" method="post">
+      <span class="user-name" uid="{{ user.id }}">{{ user }}</span>
+      <input type="hidden" name="user-id" value="{{ user.id }}" />
+      {% csrf_token %}
+      {{ user.group }}
+      <span class="not-modified"></span>
+      <input type="submit" value="submit" />
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
